@@ -1,0 +1,17 @@
+name: Trigger Tests on Push
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  trigger-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch test run to test repository
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${{ secrets.STEPRA_ALTIREON_PAT }}" \
+            https://api.github.com/repos/spmkarthikeyan/StepraTest/dispatches \
+            -d '{"event_type":"run-tests","client_payload":{"source":"app-repo-push","ref":"'${{ github.sha }}'"}}'
