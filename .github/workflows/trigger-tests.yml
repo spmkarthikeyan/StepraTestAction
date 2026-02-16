@@ -14,4 +14,4 @@ jobs:
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: Bearer ${{ secrets.STEPRA_ALTIREON_PAT }}" \
             https://api.github.com/repos/spmkarthikeyan/StepraTest/dispatches \
-            -d '{"event_type":"run-tests","client_payload":{"source":"app-repo-push","ref":"'${{ github.sha }}'","folders":"Release 2026.02"}}'
+            -d '{"event_type":"run-tests","client_payload":{"source":"app-repo-push","ref":"'${{ github.sha }}'","folders":"release-2026-02"}}'
