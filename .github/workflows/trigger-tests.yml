@@ -1,4 +1,4 @@
-name: Altireon-Stepra Trigger Tests on Push
+name: Stepra Trigger Tests on Push
 
 on:
   push:
@@ -12,6 +12,6 @@ jobs:
         run: |
           curl -X POST \
             -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: Bearer ${{ secrets.STEPRA_ALTIREON_PAT }}" \
+            -H "Authorization: Bearer ${{ secrets.STEPRA_PAT }}" \
             https://api.github.com/repos/spmkarthikeyan/StepraTest/dispatches \
-            -d '{"event_type":"run-altireon-stepra-tests","client_payload":{"source":"app-repo-push","ref":"'${{ github.sha }}'"}}'
+            -d '{"event_type":"run-stepra-tests","client_payload":{"source":"app-repo-push","ref":"'${{ github.sha }}'"}}'
